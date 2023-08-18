@@ -1,11 +1,15 @@
-import Layout1 from './module/base/compoments/layouts/Layout2'
-import RegisterForm from './module/auth/compoments/register'
 import ThemeContainer from './module/base/compoments/theme/ThemeContainer'
+import authRoutesConfig from '@src/module/auth/routes'
+import { useRoutes } from 'react-router-dom'
+import webRoutesConfig from './module/website/routes'
 
 function App() {
+  const authRoutes = useRoutes(authRoutesConfig)
+  const webRoutes = useRoutes(webRoutesConfig)
   return (
     <ThemeContainer>
-      <Layout1 Header={<></>} Content2={<></>} Content1={<RegisterForm />}></Layout1>
+      {authRoutes}
+      {webRoutes}
     </ThemeContainer>
   )
 }

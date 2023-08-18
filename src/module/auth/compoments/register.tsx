@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import React from 'react'
 
 const Div = styled.div`
-  width: 100%;
-  padding: 0 15%;
+  position: absolute;
+  width: 80%;
+  padding: 0 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  top: 50%;
+  transform: translateY(-50%);
   .ant-form.ant-form-vertical {
     width: 100%;
   }

@@ -13,7 +13,7 @@ const Layout1: React.FC<LayoutProps> = ({ Header, Content1, Content2 }) => {
       <Row style={{ background: '#f0f0f0', borderBottom: '1px solid #ddd' }}>
         <Col span={24}>{Header}</Col>
       </Row>
-      <Row>
+      <Row style={{ minHeight: '80vh', position: 'relative' }}>
         <Col span={16}>{Content1}</Col>
         <Col span={8} style={{ background: '#f9f9f9' }}>
           {Content2}
