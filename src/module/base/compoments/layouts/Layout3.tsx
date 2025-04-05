@@ -1,4 +1,5 @@
 import React, { ReactNode, useState } from 'react'
+import oldBookBg from "@src/public/oldbook-background.jpg";
 import { Row, Col } from 'antd'
 
 interface LayoutProps {
@@ -26,19 +27,35 @@ const Layout3: React.FC<LayoutProps> = ({ Header, Footer, Content1, Content2, Co
       setSecondColSpan(secondColSpan - changeColSpanBegin)
     }
   }
+
   return (
-    <div style={{ minHeight: '100vh' }}>
-      <Row style={{ background: '#f0f0f0', borderBottom: '1px solid #ddd' }}>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      minHeight: '100vh',
+      backgroundImage: `url(${oldBookBg})`,
+      backgroundSize: 'repeat',
+      backgroundPosition: 'center',
+    }}>
+      {/* Header luôn ở trên cùng */}
+      <Row style={{ background: '#f0f0f0', borderBottom: '1px solid #ddd', flexShrink: 0 }}>
         <Col span={24}>{Header}</Col>
       </Row>
-      <Row gutter={16} style={{ minHeight: '80vh', position: 'relative' }}>
-        <Col span={firstColSpan} onClick={handleFirstColSpan}>
+
+      {/* Content chiếm toàn bộ phần còn lại */}
+      <Row 
+        gutter={16} 
+        style={{ flex: 1, minHeight: '80vh', position: 'relative' }}
+      >
+        <Col span={firstColSpan}>
           {Content1}
         </Col>
         <Col span={secondColSpan}>{Content2}</Col>
         <Col span={4}>{Content3}</Col>
       </Row>
-      <Row style={{ background: '#f0f0f0', borderBottom: '1px solid #ddd' }}>
+
+      {/* Footer luôn ở dưới cùng */}
+      <Row style={{ background: '#f0f0f0', borderTop: '1px solid #ddd', flexShrink: 0 }}>
         <Col span={24}>{Footer}</Col>
       </Row>
     </div>

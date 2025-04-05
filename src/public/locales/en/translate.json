@@ -1,0 +1,33 @@
+{
+  "email": "Email",
+  "password": "Password",
+  "name": "Name",
+  "enterEmail": "Enter email",
+  "enterPassword": "Enter password",
+  "enterName": "Enter name",
+  "requiredEmail": "Please enter email!",
+  "requiredPassword": "Please enter password!",
+  "requiredName": "Please enter name!",
+  "login": "Login",
+  "register": "Register",
+  "loginSuccess": "Login successful!",
+  "registerSuccess": "Registration successful!",
+  "registerFailed": "Registration failed!",
+  "userVerified": "User information has been verified!",
+  "userVerifyFailed": "User verification failed!",
+  "loginFailed": "Login failed!",
+  "errorOccurred": "An error occurred, please try again!",
+  "homePageFunction": {
+    "diary": "Diary",
+    "finance": "Finance",
+    "learnEnglish": "Learn English",
+    "target": "Target",
+    "medicalRecord": "Medical record",
+    "information": "Information",
+    "relationship": "Relationship",
+    "skill": "Skill"
+  },
+  "createDiary": "Create New Diary",
+  "errorApi": "Unable to fetch data from API.",
+  "errorServer": "Server connection error."
+}

@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { Layout, Menu, Dropdown, Avatar, Row, Col } from 'antd'
 import { HomeOutlined, UserOutlined, DownOutlined } from '@ant-design/icons'
+import { HomePageFunction, IHomePageFunctionContent } from '@src/constants/homepageFunction'
+import { useTranslation } from 'react-i18next'
 
 const { Header } = Layout
 
 const CustomHeader = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleMenuClick = () => {
@@ -25,16 +28,16 @@ const CustomHeader = () => {
         <Col span={19}>
           <div className='logo'>{/* Icon của trang web */}</div>
           <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']} className='menu'>
-            <Menu.Item key='1' icon={<HomeOutlined />}>
+            <Menu.Item onClick={() => { window.location.href = '/' }} key='1' icon={<HomeOutlined />}>
               Home
             </Menu.Item>
-            <Menu.Item key='2'>Icon 1</Menu.Item>
-            <Menu.Item key='3'>Icon 2</Menu.Item>
-            <Menu.Item key='4'>Icon 3</Menu.Item>
+            {Object.values(HomePageFunction as unknown as Record<string, IHomePageFunctionContent>).map((item) => (
+              <Menu.Item onClick={() => { window.location.href = `/${item.link}` }} key={item.link}>{t(item.display)}</Menu.Item>
+            ))}
           </Menu>
         </Col>
         <Col span={3} style={{ color: 'white' }}>
-          {}
+          { }
         </Col>
         <Col span={2}>
           <div className='user-icon'>
