@@ -33,6 +33,7 @@ const StringText = {
     HOME_PAGE_FUNCTION_INFORMATION: 'homePageFunction.information',
     HOME_PAGE_FUNCTION_RELATIONSHIP: 'homePageFunction.relationship',
     HOME_PAGE_FUNCTION_SKILL: 'homePageFunction.skill',
+    HOME_PAGE_FUNCTION_HABIT: 'homePageFunction.habit',
   
     CREATE_DIARY: 'createDiary', // Thêm key cho "Tạo Nhật Ký Mới"
   

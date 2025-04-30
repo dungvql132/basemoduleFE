@@ -12,6 +12,7 @@ export interface IHomePageFunction {
     medicalRecord: IHomePageFunctionContent;
     information: IHomePageFunctionContent;
     relationship: IHomePageFunctionContent;
+    habit: IHomePageFunctionContent;
 }
 
 export const HomePageFunction: IHomePageFunction = {
@@ -46,5 +47,9 @@ export const HomePageFunction: IHomePageFunction = {
     skill: {
         display: "homePageFunction.skill",
         link: "skill"
+    },
+    habit: {
+        display: "homePageFunction.habit",
+        link: "habit"
     },
 }

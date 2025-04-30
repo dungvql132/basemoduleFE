@@ -25,7 +25,8 @@
     "medicalRecord": "Hồ sơ y tế",
     "information": "Thông tin",
     "relationship": "Mối quan hệ",
-    "skill": "Kỹ năng"
+    "skill": "Kỹ năng",
+    "habit": "Thói quen"
   },
   "createDiary": "Tạo Nhật Ký Mới",
   "errorApi": "Không thể lấy dữ liệu từ API.",

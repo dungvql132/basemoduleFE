@@ -142,19 +142,20 @@ const DailyDiary: React.FC = () => {
     };
 
     const handleDetailModalCancel = () => {
-        setIsDetailModalVisible(false); // Đóng modal chi tiết nhật ký
-        if(isNeedFetchData === 1){
+        if (isNeedFetchData === 1) {
             setIsNeedFetchData(0);
             fetchDiaryData();
         }
+        setIsEditMode(false);
+        setIsDetailModalVisible(false); // Đóng modal chi tiết nhật ký
     };
-
+    
     const handleDiaryItemClick = (dailyId: string) => {
         // Gọi API lấy dữ liệu chi tiết của nhật ký khi click vào
         fetch(`${Enviroment.backendUrl}/daily-diary/${dailyId}`)
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.responseStatus === 200) {
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.responseStatus === 200) {
                     setModalData(data.data);
                     setIsDetailModalVisible(true); // Hiển thị modal chi tiết nhật ký
                 }
@@ -203,7 +204,10 @@ const DailyDiary: React.FC = () => {
 
     // Hàm chuyển chế độ chỉnh sửa nhật ký
     const handleEditMode = () => {
+        formDailyEdit.setFieldValue("content",modalData.content);
+        formDailyEdit.setFieldValue("eventDailyDate",dayjs(modalData.eventDate));
         setIsEditMode(true);
+        
     };
 
     // Hàm chuyển chế độ xem nhật ký
@@ -331,7 +335,7 @@ const DailyDiary: React.FC = () => {
             .then((data) => {
                 if (data.responseStatus === 200) {
                     showMessage("success", `Daily Diary ${dailyId} deleted successfully`);
-                    setIsNeedFetchData(1);
+                    fetchDiaryData();
                     handleDetailModalCancel();
                 }
             })
@@ -480,7 +484,7 @@ const DailyDiary: React.FC = () => {
                         </Row>
                         {/* Các sự kiện của nhật ký */}
                         <Row gutter={16}>
-                            {modalData.events.map((event: any) => (
+                            {modalData.events?.map((event: any) => (
                                 <Col span={8} key={event.id}>
                                     <Card title={
                                         <Space>

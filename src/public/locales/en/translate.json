@@ -25,7 +25,8 @@
     "medicalRecord": "Medical record",
     "information": "Information",
     "relationship": "Relationship",
-    "skill": "Skill"
+    "skill": "Skill",
+    "habit": "Habit"
   },
   "createDiary": "Create New Diary",
   "errorApi": "Unable to fetch data from API.",
